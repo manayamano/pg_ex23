@@ -11,19 +11,22 @@ public class DayService extends TimeService {
 	private static final int BASIC_CHARGE = 200;
 
 	public boolean isServiceTime(int hour) {
+		if(START_TIME <= hour && hour <= END_TIME) {
+			return true;
+		}
 		return false;
 	}
 
 	public String getServiceCode() {
-		return null;
+		return SERVICE_CODE;
 	}
 
 	public int getDiscount() {
-		return 0;
+		return 5;
 	}
 
 	public int getBasicCharge() {
-		return 0;
+		return BASIC_CHARGE;
 	}
 
 }

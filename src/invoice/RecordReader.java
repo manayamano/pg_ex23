@@ -14,7 +14,7 @@ public class RecordReader {
 
 	public RecordReader() {
 		try {
-			this.reader = new BufferedReader(new FileReader(""));
+			this.reader = new BufferedReader(new FileReader("C:\\Users\\mana\\git\\pg_ex21\\src\\pg_ex21\\record.log"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -26,11 +26,15 @@ public class RecordReader {
 	}
 
 	public Record read() throws IOException {
-		return new Record(this.reader.readLine());
+		String line;
+		if((line = this.reader.readLine()) != null) {
+			return new Record(line);
+		}
+		return null;
 	}
 
-	public void close() {
-
+	public void close() throws IOException {
+		reader.close();
 	}
 
 }
